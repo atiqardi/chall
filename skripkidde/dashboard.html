@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<style>
+body { background:#111; color:white; text-align:center; font-family:Arial; }
+button { padding:10px; background:#ffc107; border:none; margin:10px; }
+</style>
+</head>
+<body>
+
+<h1>User Dashboard</h1>
+<p id="welcome"></p>
+
+<button onclick="goAdmin()">Go To Admin Panel</button>
+
+<script>
+const token = JSON.parse(atob(localStorage.getItem("authToken")));
+
+if(!token){
+    alert("Not logged in!");
+    window.location="index.html";
+}
+
+document.getElementById("welcome").innerText =
+    "Welcome " + token.username + " (" + token.role + ")";
+
+function goAdmin(){
+    window.location="admin.html";
+}
+</script>
+
+</body>
+</html>
