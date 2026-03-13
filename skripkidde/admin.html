@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<style>
+body { background:#1a1a1a; color:white; text-align:center; font-family:Arial; }
+.panel { margin-top:100px; }
+</style>
+</head>
+<body>
+
+<div class="panel">
+    <h1>Admin Panel</h1>
+    <p id="message"></p>
+</div>
+
+<script>
+const token = JSON.parse(atob(localStorage.getItem("authToken")));
+
+if(token.role === "admin"){
+    document.getElementById("message").innerText =
+        atob("ZmxhZ3thZG1pbl9jbGllbnRfc2lkZV9mYWlsfQ==");
+} else {
+    document.getElementById("message").innerText =
+        "Access Denied. You are not admin.";
+}
+</script>
+
+</body>
+</html>
